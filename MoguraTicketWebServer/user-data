@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#=========================================================================
+#       Job Name      : user data script for auto scaling
+#       Description   : run as the root user
+#=========================================================================
+
+cd /home/ec2-user
+aws s3 sync --region=ap-northeast-1 s3://[your s3 bucket]/MoguraTicketWebServer MoguraTicketWebServer
+cd MoguraTicketWebServer
+npm install
+forever start -w app.js
