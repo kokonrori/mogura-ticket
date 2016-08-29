@@ -26,7 +26,7 @@ Please test at **2+ browsers** simultaneously.
 - CloudWatch
 - IAM (Identity and Access Management)
 
-![network outline](misc/network-outline.png)
+![network outline](misc/network-diagram.png)
 
 **Data flow**
 
