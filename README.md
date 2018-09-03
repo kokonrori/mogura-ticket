@@ -1,6 +1,7 @@
 # mogura-ticket
 
 ![License](https://img.shields.io/github/license/kokonrori/mogura-ticket.svg)
+![node](https://img.shields.io/node/v/passport.svg)
 
 > Realtime & auto scaling ticket reservation using AWS
 
