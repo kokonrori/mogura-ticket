@@ -8,7 +8,7 @@
 
 Please test at **2+ browsers** simultaneously.
 
-[mogura-ticket](http://mogura.cf) features **```realtime```** and **```auto scaling```**.
+mogura-ticket features **```realtime```** and **```auto scaling```**.
 
 ## Amazon Web Services
 
