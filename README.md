@@ -1,5 +1,7 @@
 # mogura-ticket
 
+![License](https://img.shields.io/github/license/purpleworks/delibird.svg)
+
 > Realtime & auto scaling ticket reservation using AWS
 
 ## Get started
