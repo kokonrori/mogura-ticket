@@ -13,11 +13,11 @@ var express = require('express')
   , io = require('socket.io').listen(server);
 
 var redisEndpoint = {
-  host: // your redis endpoint,
+  host: // Your redis endpoint,
   port: 6379
 };
 var rdsEndpoint = {
-  host: // your RDS(RDB) endpoint,
+  host: // Your RDS(RDB) endpoint,
   port: 3306
 };
 
@@ -40,7 +40,7 @@ var Seat = sequelize.define('Seat', {
   userId: Sequelize.STRING
 });
 
-// create table
+// Create table
 sequelize.sync();
 
 var ipAddress;
@@ -52,7 +52,7 @@ app.get(['/', '/index.html'], function (req, res) {
   });
 });
 
-// send status data of all seats from RDS
+// Send status data of all seats from RDS
 app.get('/seats', function (req, res) {
   Seat.findAll({
     where: { actionType: { ne: 'cancel' } }
@@ -72,7 +72,7 @@ app.get('/seats', function (req, res) {
   });
 });
 
-// send ip address of EC2 instance
+// Send ip address of EC2 instance
 app.get('/ip', function (req, res) {
   res.header('Cache-Control', 'max-age=0, s-maxage=0, public');
   if (!ipAddress) {
@@ -88,7 +88,7 @@ app.get('/ip', function (req, res) {
 
 // Reservation & Checkout
 io.sockets.on('connection', function (socket) {
-  // listen an 'action' socket message from client
+  // Listen an 'action' socket message from client
   socket.on('action', function (data) {
     Seat.find({
       where: { seatId: data.row + '-' + data.col }
@@ -105,7 +105,7 @@ io.sockets.on('connection', function (socket) {
         seat.actionType = data.actionType;
         seat.save().success(function () {
 
-          // publish a seat message (EC2 instance -> Redis)
+          // Publish a seat message (EC2 instance -> Redis)
           publisher.publish('seat', JSON.stringify(data));
         });
       }
@@ -113,10 +113,10 @@ io.sockets.on('connection', function (socket) {
   });
 });
 
-// subscribe a seat message (Redis -> EC2 instances)
+// Subscribe a seat message (Redis -> EC2 instances)
 subscriber.subscribe('seat');
 subscriber.on('message', function (channel, message) {
-  // emit a 'result' socket message to client
+  // Emit a 'result' socket message to client
   io.sockets.emit('result', JSON.parse(message));
 });
 
