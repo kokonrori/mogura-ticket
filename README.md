@@ -3,15 +3,15 @@
 ![License](https://img.shields.io/github/license/kokonrori/mogura-ticket.svg)
 ![node](https://img.shields.io/node/v/passport.svg)
 
-> Realtime & auto scaling ticket reservation using AWS
+> Real-time ticket reservation website using AWS
 
 ## Get started
 
 ![mogura.cf Screenshot](misc/sample-screenshot.png)
 
-Please test at **2+ browsers** simultaneously.
+Test at least **2+ browsers** simultaneously.
 
-mogura-ticket features **```realtime```** and **```auto scaling```**.
+Mogura Ticket features **```real-time```** and **```auto scaling```**.
 
 ## Amazon Web Services
 
@@ -33,7 +33,7 @@ mogura-ticket features **```realtime```** and **```auto scaling```**.
 
 **Data flow**
 
-- socket.io
+- Socket.IO
 - Redis Pub/Sub
 
 ![data flow](misc/data-flow.png)
